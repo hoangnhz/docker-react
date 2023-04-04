@@ -1,0 +1,29 @@
+version: '3'
+services:
+  #react_app:
+  #  build:
+  #    context: .
+  #    dockerfile: Dockerfile.dev
+    #network_mode: "host"
+  #  ports:
+  #    - "3000:3000" 
+  #  volumes:
+  #    - .:/app
+  #    - /app/node_modules
+  
+  #tests:
+  #  build: 
+  #    context: .
+  #    dockerfile: Dockerfile.dev
+  #  volumes:
+  #    - .:/app
+  #    - /app/node_modules
+  #  command: ["npm", "run", "test"]
+
+  react_app_prod:
+    build: .
+    ports:
+      - 8080:80
+    volumes:
+    - .:/app
+    - /app/node_modules
