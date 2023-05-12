@@ -12,7 +12,12 @@ jobs:
       - run:
           name: Build Docker Image
           command: 
-            docker build -t ci-image:latest .
+            docker build -t hoangnhdocker/circleci:latest .
+      - run:
+          name: Push image
+          command: |
+            echo $DOCKER_PASSWORD | docker login -u $DOCKER_LOGIN --password-stdin
+            docker push hoangnhdocker/circleci:latest
 
 workflows:
   example-workflow:
