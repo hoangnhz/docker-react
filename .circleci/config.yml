@@ -1,1 +1,17 @@
+version: 2.1
+orbs:
+  docker: circleci/docker@1.7.0
 
+jobs:
+  example-job:
+    docker:
+      # replace with your preferred image
+      - image: cimg/base:stable
+    steps:
+      - docker/build:
+          image: test 
+
+workflows:
+  example-workflow:
+    jobs:
+      - example-job
