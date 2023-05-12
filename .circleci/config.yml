@@ -1,19 +1,18 @@
 version: 2.1
-orbs:
-  docker: circleci/docker@1.7.0
 
 jobs:
-  example-job:
+  build-docker-image:
     docker:
       # replace with your preferred image
-      - image: cimg/base:stable
+      - image: cimg/node:14.0.0
     steps:
-      - docker/build:
-          docker-context: . 
-          path: /home
-          image: test 
+      - checkout
+      - run:
+          name: Build Docker Image
+          command: 
+            docker build -t .
 
 workflows:
   example-workflow:
     jobs:
-      - example-job
+      - build-docker-image
