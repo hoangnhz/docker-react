@@ -9,6 +9,8 @@ jobs:
       - image: cimg/base:stable
     steps:
       - docker/build:
+          docker-context: . 
+          path: .
           image: test 
 
 workflows:
