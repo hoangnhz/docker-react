@@ -10,7 +10,7 @@ jobs:
     steps:
       - docker/build:
           docker-context: . 
-          path: /home/Dockerfile
+          path: /home
           image: test 
 
 workflows:
