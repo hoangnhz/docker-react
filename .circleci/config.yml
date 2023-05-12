@@ -10,7 +10,7 @@ jobs:
       - run:
           name: Build Docker Image
           command: 
-            docker build -t .
+            docker build -t ci-image:latest .
 
 workflows:
   example-workflow:
