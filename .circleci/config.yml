@@ -3,16 +3,11 @@ orbs:
   docker: circleci/docker@2.2.0
 
 workflows:
-    example-workflow:
-      jobs:
-        - docker/publish:
-            image: hoangnhdocker/circleci 
-            deploy: true 
-            lint-dockerfile: false 
-            remote-docker-dlc: true 
-            treat-warnings-as-errors: false 
-            update-description: false 
-            use-buildkit: true 
-            use-docker-credentials-store: false 
-            use-remote-docker: true 
-            remote-docker-version: '20.10.18' 
+  build-docker-image-only-with-buildkit:
+    jobs:
+      - docker/publish:
+          image: hoangnhdocker/circlrci
+          remote-docker-version: 20.10.12
+          update-description: true
+          use-buildkit: true
+          use-remote-docker: true
