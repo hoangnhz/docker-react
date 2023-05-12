@@ -2,23 +2,17 @@ version: 2.1
 orbs:
   docker: circleci/docker@2.2.0
 
-jobs:
-  build-docker-image:
-    docker:
-      # replace with your preferred image
-      - image: cimg/node:14.0.0
-    steps:
-      - checkout
-      - setup_remote_docker:
-          docker_layer_caching: true
-      - docker/build:
-          image: hoangnhdocker/circleci 
-          use-buildkit: true 
-          treat-warnings-as-errors: false
-      - docker/push:
-          image: hoangnhdocker/circleci
-
 workflows:
-  example-workflow:
-    jobs:
-      - build-docker-image
+    example-workflow:
+      jobs:
+        - docker/publish:
+            image: hoangnhdocker/circleci 
+            deploy: true 
+            lint-dockerfile: false 
+            remote-docker-dlc: true 
+            treat-warnings-as-errors: false 
+            update-description: false 
+            use-buildkit: true 
+            use-docker-credentials-store: false 
+            use-remote-docker: true 
+            remote-docker-version: '20.10.18' 
