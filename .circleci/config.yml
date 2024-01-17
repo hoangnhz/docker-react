@@ -14,6 +14,8 @@ jobs:
           image: hoangnhdocker/circleci
       - docker/push:         
           image: hoangnhdocker/circleci
+         
+  
 workflows:
   commit:
     jobs:
